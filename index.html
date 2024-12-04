@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Topic Explorer</div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="search-container">
+            <h1>Discover Knowledge</h1>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Enter a topic...">
+                <button id="searchBtn">Search</button>
+            </div>
+        </div>
+
+        <div class="results-container" id="resultsContainer">
+            <div class="topic-info hidden" id="topicInfo">
+                <h2 id="topicTitle"></h2>
+                <div class="topic-content">
+                    <div class="definition-section">
+                        <h3>Definition</h3>
+                        <p id="definition"></p>
+                    </div>
+                    
+                    <div class="images-section">
+                        <h3>Related Images</h3>
+                        <div id="imageGallery" class="image-gallery"></div>
+                    </div>
+                    
+                    <div class="summary-section">
+                        <h3>Summary</h3>
+                        <p id="summary"></p>
+                    </div>
+                </div>
+            </div>
+            <div id="loader" class="loader hidden"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Topic Explorer. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
