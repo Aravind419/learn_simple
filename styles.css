@@ -4,6 +4,15 @@
     --text-color: #333;
     --accent-color: #2c3e50;
     --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --bg-color: #ffffff;
+    --card-bg: #ffffff;
+}
+
+.dark-theme {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --card-bg: #2d2d2d;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -18,6 +27,8 @@ body {
     color: var(--text-color);
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     min-height: 100vh;
+    background-color: var(--bg-color);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 header {
@@ -164,4 +175,332 @@ footer {
     .topic-content {
         grid-template-columns: 1fr;
     }
+}
+
+/* Content Cards */
+.content-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.card-title {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-family: 'Georgia', serif;
+}
+
+.definition-text {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 1.5rem;
+}
+
+.summary-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-family: 'Helvetica', sans-serif;
+}
+
+/* Updated QR Code Styles */
+.qr-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    margin-top: 2rem;
+}
+
+.qr-image {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.qr-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 2rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.qr-action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.qr-action-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.qr-action-btn:hover svg {
+    transform: translateY(2px);
+}
+
+.qr-instructions {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.qr-instructions p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.qr-instructions small {
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Dark theme support */
+.dark-theme .qr-image {
+    border: 2px solid var(--text-color);
+}
+
+@media (max-width: 768px) {
+    .qr-image {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .qr-container {
+        padding: 1rem;
+    }
+    
+    .qr-action-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.main-content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .qr-container img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .qr-section {
+        padding: 1rem;
+    }
+}
+
+/* Resources Section */
+.resources-section {
+    margin-top: 2rem;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.resource-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.resource-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.resource-card h4 {
+    padding: 1rem;
+    font-size: 1.1rem;
+}
+
+.resource-card a {
+    display: block;
+    padding: 0.8rem;
+    text-align: center;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    .card-title {
+        font-size: 1.5rem;
+    }
+
+    .definition-text {
+        font-size: 1.2rem;
+    }
+
+    .summary-text {
+        font-size: 1rem;
+    }
+}
+
+/* Action Buttons Styles */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.action-btn.download {
+    background-color: var(--primary-color);
+}
+
+.action-btn.print {
+    background-color: #2ecc71;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.action-btn svg {
+    stroke-width: 2;
+    width: 16px;
+    height: 16px;
+}
+
+@media (max-width: 768px) {
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .action-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Updated Content Card Styles */
+.question-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.answer-section {
+    margin-top: 1.5rem;
+}
+
+.answer-section h4 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.quick-answer {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.detailed-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.detailed-card h4 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.detailed-answer {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+.detailed-answer p {
+    margin-bottom: 1rem;
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: none;
+        color: black;
+    }
+
+    .search-container, .action-buttons {
+        display: none !important;
+    }
+
+    .question-card, .detailed-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        break-inside: avoid;
+    }
+}
+
+.error-card {
+    text-align: center;
+    padding: 2rem;
+}
+
+.error-card p {
+    color: #e74c3c;
+    font-size: 1.1rem;
+    margin-top: 1rem;
 } 
